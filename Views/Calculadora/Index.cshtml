@@ -1,0 +1,26 @@
+@model Calculadora.Models.CalculadoraModel
+
+@{
+    ViewData["Title"] = "Calculadora (com Model)";
+}
+
+<h2>Calculadora com Model</h2>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label>Número 1:</label>
+        <input type="number" name="numero1" step="any" required />
+    </div>
+
+    <div>
+        <label>Número 2:</label>
+        <input type="number" name="numero2" step="any" required />
+    </div>
+
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model != null && (Model.Numero1 != 0 || Model.Numero2 != 0))
+{
+    <h3>Resultado: @Model.Resultado</h3>
+}
